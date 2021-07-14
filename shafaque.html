@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Assignment</title>
+
+    <style>
+        .container {
+            width: 60%;
+            height: 38vh;
+            border: 7px solid rgb(4, 8, 4);
+            margin: 43px auto;
+            background-color: black;
+            display: flex;
+            align-items: flex-end;
+
+        }
+
+
+        .bar {
+            flex: 1;
+            height: 38vh;
+            margin: 0px;
+            transition: all 0.5 ease-in-out;
+
+        }
+
+        #animate1 {
+            background-color: blueviolet;
+        }
+
+        #animate2 {
+            background-color: rgb(240, 116, 234);
+        }
+
+        #animate3 {
+            background-color: rgb(238, 74, 101);
+        }
+
+        #animate4 {
+            background-color: rgb(247, 103, 37);
+        }
+
+        #animate5 {
+            background-color: yellow;
+        }
+
+
+        .box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 50%;
+            margin: auto;
+            height: 30px;
+
+        }
+
+
+
+        .btn {
+            width: 80px;
+            height: 30px;
+            
+        }
+
+
+        #start {
+            color: white;
+            background-color: rgb(0, 180, 0);
+            border: 2px solid rgb(0, 180, 0);
+            border-radius: 5px;
+            padding: 2px 4px;
+            font-size: 1.1rem;
+            cursor: pointer;
+        }
+
+        #start:hover {
+            border: 2px solid blue;
+
+        }
+
+        #stop {
+
+            color: white;
+            background-color: red;
+            border: 2px solid red;
+            border-radius: 5px;
+            padding: 2px 4px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            position: relative;
+
+        }
+
+        #stop:hover {
+            border: 2px solid blue;
+
+        }
+
+        @media screen and (max-width: 460px) {
+     .box {
+        /* border: 2px solid blue; */
+        width: 60%;
+        position: absolute;
+        left: 20%;
+        
+    }
+    .btn{
+        width: 50px;
+    }
+
+    #start{
+        position: absolute;
+        right: 55%;
+        
+
+    }
+
+    #stop{
+        position: absolute ;
+        left: 55% ;
+        font-size: 0.9rem;
+    }
+}
+    </style>
+</head>
+
+
+
+<body>
+    <div class="container">
+        <div class="bar" id="animate1"></div>
+        <div class="bar" id="animate2"></div>
+        <div class="bar" id="animate3"></div>
+        <div class="bar" id="animate4"></div>
+        <div class="bar" id="animate5"></div>
+
+    </div>
+    <div class="box">
+
+        <button class="btn" id="start">Start</button>
+
+
+        <button class="btn" id="stop">Stop</button>
+
+    </div>
+
+
+    <script>
+        const start = document.getElementById("start");
+        const stop = document.getElementById("stop");
+        const bar1 = document.getElementById("animate1");
+        const bar2 = document.getElementById("animate2");
+        const bar3 = document.getElementById("animate3");
+        const bar4 = document.getElementById("animate4");
+        const bar5 = document.getElementById("animate5");
+
+
+
+        const getRandomHeightBetween1to38vh = () => {
+            var interval = setInterval(() => {
+                const arr = [(Math.floor(Math.random() * 38 + 1)), (Math.floor(Math.random() * 38 + 1)), (Math.floor(Math.random() * 38 + 1)), (Math.floor(Math.random() * 38 + 1)), (Math.floor(Math.random() * 38 + 1))];
+
+
+                bar1.animate({
+                    height: `${arr[0]}vh`
+
+                }, 1000)
+                setTimeout(() => {
+                    bar1.style.height = `${arr[0]}vh`
+
+                }, 1000)
+
+                bar2.animate({
+                    height: `${arr[1]}vh`
+
+                }, 1000)
+                setTimeout(() => {
+                    bar2.style.height = `${arr[1]}vh`
+
+                }, 1000)
+
+                bar3.animate({
+                    height: `${arr[2]}vh`
+
+                }, 1000)
+                setTimeout(() => {
+                    bar3.style.height = `${arr[2]}vh`
+
+                }, 1000)
+
+                bar4.animate({
+                    height: `${arr[3]}vh`
+
+                }, 1000)
+                setTimeout(() => {
+                    bar4.style.height = `${arr[3]}vh`
+
+                }, 1000)
+
+                bar5.animate({
+                    height: `${arr[4]}vh`
+
+                }, 1000)
+                setTimeout(() => {
+                    bar5.style.height = `${arr[4]}vh`
+
+                }, 1000)
+
+
+            }, 1000)
+
+            stop.addEventListener("click", function () {
+                clearInterval(interval)
+            })
+
+        }
+
+        start.addEventListener("click", getRandomHeightBetween1to38vh);
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>
